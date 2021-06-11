@@ -13,6 +13,7 @@ aci_bigip_vnic = {
   internal : "Network adapter 3",
   external : "Network adapter 2"
 }
+aci_bigip_provider_mac = "00:50:56:AC:D2:81"
 
 aci_provider_bd_subnets = {
   subnet_1 : { subnet : "10.193.101.1/24", description : "" },
@@ -23,14 +24,23 @@ aci_consumer_bd_subnets = {
   subnet_2 : { subnet : "10.10.11.1/24", description : "" }
 }
 
+aci_provider_service_bd_subnets = {
+  subnet_1 : { subnet : "10.193.105.1/24", description : "" }
+}
+
+aci_consumer_service_bd_subnets = {
+  subnet_1 : { subnet : "10.10.12.1/24", description : "" },
+}
+
+
 //BIG-IP
 address     = "198.18.128.130"
 port        = 443
 password    = "admin"
 tenant      = "DemoPartition"
 application = "DemoApp"
-selfip_int  = "10.193.101.51/24"
-selfip_ext  = "10.10.10.51/24"
-vip_address = "10.10.10.105"
+selfip_int  = "10.193.105.51/24"
+selfip_ext  = "10.10.12.51/24"
+vip_address = "10.10.12.105"
 server1     = "10.193.101.4"
 server2     = "10.193.101.5"

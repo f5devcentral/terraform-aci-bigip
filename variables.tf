@@ -107,6 +107,10 @@ variable "aci_bigip_vnic" {
   }
 }
 
+variable "aci_bigip_provider_mac" {
+  description = "ACI provider MAC address"
+  type        = string
+}
 variable "aci_provider_bd_subnets" {
   description = "ACI Provider BD subnets information"
   type        = map(any)
@@ -136,3 +140,28 @@ variable "aci_consumer_bd_subnets" {
     }
   }
 }
+
+variable "aci_provider_service_bd_subnets" {
+  description = "ACI Provider BD subnets information"
+  type        = map(any)
+  default = {
+    subnet_1 = {
+      subnet      = "10.10.105.1/24"
+      description = "This BD Subnet is created by the ACI terraform service-graph-lb module."
+    }
+
+  }
+}
+
+variable "aci_consumer_service_bd_subnets" {
+  description = "ACI Consumer BD subnets information"
+  type        = map(any)
+  default = {
+    subnet_1 = {
+      subnet      = "10.10.107.1/24"
+      description = "This BD Subnet is created by the ACI terraform service-graph-lb module."
+    }
+
+  }
+}
+

@@ -22,7 +22,8 @@ provider "aci" {
 // Deploy the ACI configuration
 module "service-graph-lb" {
   //   source  = "app.terraform.io/cisco-dcn-ecosystem/demo_template/mso"
-  source = "./modules/service-graph-lb"
+  #source = "./modules/service-graph-lb"
+  source = "./modules/service-graph-lb-pbr"
   //   version = "0.0.4"
   tenant              = var.aci_tenant
   vmm_provider_dn     = var.aci_vmm_provider_dn
@@ -31,10 +32,14 @@ module "service-graph-lb" {
   vm_name             = var.aci_bigip_vm_name
   vnic                = var.aci_bigip_vnic
   device_name         = var.aci_bigip_device_name
+  device_mac_address  = var.aci_bigip_provider_mac
+  device_ip_address   = var.selfip_int
   #vmm_domain_name = "My-vCenter"
   #vmm_controller_name = "dCloud-DC"
-  provider_bd_subnets = var.aci_provider_bd_subnets
-  consumer_bd_subnets = var.aci_consumer_bd_subnets
+  provider_bd_subnets         = var.aci_provider_bd_subnets
+  consumer_bd_subnets         = var.aci_consumer_bd_subnets
+  provider_service_bd_subnets = var.aci_provider_service_bd_subnets
+  consumer_service_bd_subnets = var.aci_consumer_service_bd_subnets
 }
 
 provider "bigip" {
