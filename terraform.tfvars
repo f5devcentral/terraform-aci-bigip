@@ -3,7 +3,7 @@ aci_username = "admin"
 aci_password = "C1sco12345"
 aci_url      = "https://198.18.133.200"
 
-aci_tenant              = { name : "terraform-f5-tenant", description : "" }
+aci_tenant              = { name : "f5", description : "" }
 aci_vmm_provider_dn     = "uni/vmmp-VMware"
 aci_vmm_domain_name     = "My-vCenter"
 aci_vmm_controller_name = "dCloud-DC"

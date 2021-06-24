@@ -11,7 +11,7 @@ variable "vrf" {
     description = "ACI VRF information"
     type        = map
     default     = {
-        name        = "terraform-lb-vrf"
+        name        = "vrf"
         description = "This VRF is created by the ACI terraform service-graph-lb module."
     }
 }
@@ -20,7 +20,7 @@ variable "provider_bd" {
     description = "ACI Provider BD information"
     type        = map
     default     = {
-        name              = "terraform-lb-provider-bd"
+        name              = "provider-bd"
         description       = "This BD is created as the provider BD by the ACI terraform service-graph-lb module."
         multi_dst_pkt_act = "bd-flood"
     }
@@ -45,7 +45,7 @@ variable "consumer_bd" {
     description = "ACI Consumer BD information"
     type        = map
     default     = {
-        name              = "terraform-lb-consumer-bd"
+        name              = "consumer-bd"
         description       = "This BD is created as the consumer BD by the ACI terraform service-graph-lb module."
         multi_dst_pkt_act = "bd-flood"
     }
@@ -70,7 +70,7 @@ variable "provider_service_bd" {
     description = "ACI Provider Service BD information"
     type        = map
     default     = {
-        name              = "terraform-lb-provider-service-bd"
+        name              = "provider-service-bd"
         description       = "This BD is created as the provider service BD by the ACI terraform service-graph-lb-pbr module."
         multi_dst_pkt_act = "bd-flood"
     }
@@ -91,7 +91,7 @@ variable "consumer_service_bd" {
     description = "ACI Consumer Service BD information"
     type        = map
     default     = {
-        name              = "terraform-lb-consumer-service-bd"
+        name              = "consumer-service-bd"
         description       = "This BD is created as the consumer service BD by the ACI terraform service-graph-lb-pbr module."
         multi_dst_pkt_act = "bd-flood"
     }
@@ -135,7 +135,7 @@ variable "ap" {
     description = "Create application profile"
     type        = map
     default     = {
-        name        = "terraform-lb-anp",
+        name        = "anp",
         description = "This Application Profile is created by the ACI terraform service-graph-lb module."
     }
 }
@@ -145,12 +145,12 @@ variable "epgs" {
     type        = map
     default     = {
         consumer = {
-            name        = "terraform-lb-consumer-epg",
+            name        = "consumer-epg",
             encap       = "21"
             description = "Consumer EPG created by the ACI terraform service-graph-lb module."
         },
         provider = {
-            name        = "terraform-lb-provider-epg",
+            name        = "provider-epg",
             encap       = "22"
             description = "Provider EPG created by the ACI terraform service-graph-lb module."
         }

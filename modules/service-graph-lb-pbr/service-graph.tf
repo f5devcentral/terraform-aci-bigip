@@ -143,19 +143,24 @@ resource "aci_service_redirect_policy" "this" {
 resource "aci_destination_of_redirected_traffic" "this" {
     dest_name                  = var.device_name
     service_redirect_policy_dn = aci_service_redirect_policy.this.id
-    ip                         = var.device_ip_address
+    ip                         = element(split("/", var.device_ip_address), 0)
     mac                        = var.device_mac_address
     relation_vns_rs_redirect_health_group = aci_rest.health_group.id
+}
+
+resource "time_sleep" "wait_30_seconds" {
+    depends_on = [aci_rest.device, aci_epg_to_domain.consumer_epg, aci_epg_to_domain.provider_epg]
+    create_duration = "30s"
 }
 
 # Query Consumer Arm VLAN
 data "aci_rest" "vlan_consumer" {
     path = "api/node/class/vnsEPgDef.json?query-target-filter=and(eq(vnsEPgDef.lIfCtxDn,\"${aci_logical_interface_context.consumer.id}\"))"
-    depends_on = [aci_rest.device, aci_epg_to_domain.consumer_epg, aci_epg_to_domain.provider_epg]
+    depends_on = [time_sleep.wait_30_seconds]
 }
 
 # Query Provider Arm VLAN
 data "aci_rest" "vlan_provider" {
     path = "api/node/class/vnsEPgDef.json?query-target-filter=and(eq(vnsEPgDef.lIfCtxDn,\"${aci_logical_interface_context.provider.id}\"))"
-    depends_on = [aci_rest.device, aci_epg_to_domain.consumer_epg, aci_epg_to_domain.provider_epg]
+    depends_on = [time_sleep.wait_30_seconds]
 }
