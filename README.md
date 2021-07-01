@@ -6,7 +6,7 @@ This terraform module represents a common “Infrastructure as Code” scenario 
 
 Topology
 -----------
-[Topology](./images/topology.png)
+![Topology](./images/topology.png)
 
 Requirements
 ------------
