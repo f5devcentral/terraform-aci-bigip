@@ -1,7 +1,16 @@
 # Cisco ACI and F5 BIG-IP integration
+
+This terraform module represents a common “Infrastructure as Code” scenario for provisioning and management of Cisco ACI and F5 BIG-IP on any private/multi/hybid infrastructure, with focus on:
+- on-prem greenfield deployment
+- with Cisco Service Graph (PBR)
+
+Topology
+-----------
+[Topology](./images/topology.png)
+
 Requirements
 ------------
-- [Terraform](https://www.terraform.io/downloads.html) v0.11.7
+- [Terraform](https://www.terraform.io/downloads.html) v0.11.7 +
 - [Go](https://golang.org/doc/install) Latest Version
 
 Using The Provider
@@ -10,7 +19,7 @@ Using The Provider
 2. Specify user values in a variable definitions file `terraform.tfvars`
 ```hcl
 aci_username = "admin"
-aci_password = "C1sco12345"
+aci_password = "xxxxxxxx"
 aci_url      = "https://198.18.133.200"
 
 aci_tenant              = { name : "f5", description : "" }
