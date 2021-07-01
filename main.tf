@@ -62,4 +62,5 @@ module "as3_http_app" {
   server1     = var.server1
   server2     = var.server2
   vip_address = var.vip_address
+  snat        = var.snat
 }

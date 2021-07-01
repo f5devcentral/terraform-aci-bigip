@@ -44,3 +44,5 @@ selfip_ext  = "10.10.12.51/24"
 vip_address = "10.10.12.105"
 server1     = "10.193.101.4"
 server2     = "10.193.101.5"
+#SNAT “none” or disabled for PBR, “self”, “auto” for non-PBR
+snat = "none"

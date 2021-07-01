@@ -15,6 +15,7 @@ data "template_file" "init" {
     VIP_ADDRESS = var.vip_address
     SERVER1     = var.server1
     SERVER2     = var.server2
+    SNAT = var.snat
   }
 }
 

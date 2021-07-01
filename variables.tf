@@ -56,6 +56,10 @@ variable "server2" {
   type    = string
   default = "10.193.101.3"
 }
+variable "snat" {
+  type    = string
+  default = "auto"
+}
 
 variable "aci_username" {}
 variable "aci_password" {}

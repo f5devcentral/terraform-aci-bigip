@@ -19,6 +19,7 @@
                 "virtualAddresses": [
                     "${VIP_ADDRESS}"
                 ],
+                "snat": "${SNAT}",
                 "pool": "web_pool"
                 },
                 "web_pool": {
