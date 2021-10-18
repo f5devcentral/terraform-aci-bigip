@@ -2,13 +2,12 @@ terraform {
   required_providers {
     bigip = {
       source  = "f5networks/bigip"
-      version = "1.8.0"
     }
   }
 }
 
 data "template_file" "init" {
-  template = file("as3.tpl")
+  template = file("${path.module}/as3.tpl")
   vars = {
     TENANT      = var.tenant
     APPLICATION = var.application

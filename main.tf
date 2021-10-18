@@ -3,11 +3,11 @@ terraform {
   required_providers {
     bigip = {
       source  = "f5networks/bigip"
-      version = "1.8.0"
+      version = "1.11.1"
     }
     aci = {
       source  = "ciscodevnet/aci"
-      version = "0.6.0"
+      version = "0.7.1"
     }
   }
 }
@@ -21,10 +21,7 @@ provider "aci" {
 
 // Deploy the ACI configuration
 module "service-graph-lb" {
-  //   source  = "app.terraform.io/cisco-dcn-ecosystem/demo_template/mso"
-  #source = "./modules/service-graph-lb"
   source = "./modules/service-graph-lb-pbr"
-  //   version = "0.0.4"
   tenant              = var.aci_tenant
   vmm_provider_dn     = var.aci_vmm_provider_dn
   vmm_domain_name     = var.aci_vmm_domain_name
